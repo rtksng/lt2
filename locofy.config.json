@@ -1,0 +1,7 @@
+{
+  "components": [
+    "./src/app/sharedComponents/Button/Button.component.html",
+    "./src/app/sharedComponents/Checkbox/checkbox.component.html",
+    "./src/app/sharedComponents/Input/Input.component.html"
+  ]
+}
