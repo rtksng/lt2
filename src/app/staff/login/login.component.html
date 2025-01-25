@@ -1,0 +1,36 @@
+<div class="grid col-span-1 lg:grid-cols-2 h-screen">
+  <div class="lg:col-span-1 hidden lg:block h-full relative bg-primary-base">
+    <img src="../../../assets/img/loginImage.png" alt="loginImage" />
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="text-center">
+        <div class="flex items-center w-full">
+          <img src="../../../assets/img/logoWhite.svg" alt="logo" />
+        </div>
+        <p class="text-[26px] text-white max-w-[492px] font-light mt-8">
+          Your health destination that elevates the traditional
+          <span class="font-bold">wellness</span> experience
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="lg:col-span-1 col-span-12 flex items-center justify-center h-screen px-3"
+  >
+    <div class="h-full" *ngIf="showSignInScreen">
+      <app-sign-in class="h-full"></app-sign-in>
+    </div>
+    <div class="h-full" *ngIf="showOtpVerificationScreen">
+      <app-otp-verification class="h-full"></app-otp-verification>
+    </div>
+    <div class="h-full" class="h-full" *ngIf="showForgotPasswordScreen">
+      <app-forgot-password class="h-full"></app-forgot-password>
+    </div>
+    <div class="h-full" *ngIf="showForgotPasswordOtpVerificationScreen">
+      <app-forgot-password-otp-verification class="h-full"></app-forgot-password-otp-verification>
+    </div> 
+    <div class="h-full" *ngIf="showSetNewPasswordScreen">
+      <app-set-new-password class="h-full"></app-set-new-password>
+    </div>
+  </div>
+</div>

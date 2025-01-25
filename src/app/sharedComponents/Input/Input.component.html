@@ -1,0 +1,84 @@
+<div
+  [formGroup]="parentForm"
+  class="space-y-4"
+  [attr.data-chips]="chips"
+  [attr.data-danger]="danger"
+  [attr.data-filled]="filled"
+  [attr.data-success]="success"
+  [attr.data-warning]="warning"
+  [attr.disabled]="disabled"
+>
+  <div
+    class="self-stretch flex flex-row items-center justify-start gap-[0.5rem]"
+    *ngIf="label"
+  >
+    <img
+      class="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0"
+      alt="icon"
+      loading="eager"
+      src="../../../assets/img/loginIcon.svg"
+    />
+    <label class="text-gray-900 text-xl" [attr.for]="for">{{ label }}</label>
+  </div>
+  <div class="relative">
+    <input
+      class="h-12 rounded-full px-4 border w-full focus:outline-none placeholder:text-base placeholder:text-gray-700"
+      [ngClass]="{
+        'border-gray-500 shadow-none': !warning && !danger && !success,
+        'border-yellow-500 shadow-[0px_0px_0px_4px_rgba(245,158,11,0.24)]':
+          warning,
+        'border-red-500 shadow-[0px_0px_0px_4px_rgba(239,68,68,0.24)]': danger,
+        'border-green-500 shadow-[0px_0px_0px_4px_rgba(44,211,111,0.24)]':
+          success,
+        'bg-gray-200 cursor-not-allowed': disabled
+      }"
+      [attr.disabled]="disabled ? true : null"
+      [type]="inputType"
+      [placeholder]="placeholder"
+      [formControlName]="controlName"
+      [maxlength]="maxlength"
+      [attr.data-chips]="chips"
+      [attr.data-danger]="danger"
+      [attr.data-filled]="filled"
+      [attr.data-success]="success"
+      [attr.data-warning]="warning"
+      (keydown)="keydownHandler?.($event)"
+      (keyup)="keyupHandler?.($event)"
+      (keypress)="keypressHandler?.($event)"
+      (click)="clickHandler?.($event)"
+      (dblclick)="dblclickHandler?.($event)"
+      (mousedown)="mousedownHandler?.($event)"
+      (mouseup)="mouseupHandler?.($event)"
+      (mouseenter)="mouseenterHandler?.($event)"
+      (mouseleave)="mouseleaveHandler?.($event)"
+      (mouseover)="mouseoverHandler?.($event)"
+      (mouseout)="mouseoutHandler?.($event)"
+      (focus)="focusHandler?.($event)"
+      (blur)="blurHandler?.($event)"
+      (input)="inputHandler?.($event)"
+      (change)="changeHandler?.($event)"
+      (drag)="dragHandler?.($event)"
+      (dragstart)="dragstartHandler?.($event)"
+      (dragend)="dragendHandler?.($event)"
+      (dragover)="dragoverHandler?.($event)"
+      (dragleave)="dragleaveHandler?.($event)"
+      (drop)="dropHandler?.($event)"
+      (scroll)="scrollHandler?.($event)"
+      (wheel)="wheelHandler?.($event)"
+    />
+  </div>
+  <div
+    class="text-sm"
+    [ngClass]="{
+      'text-gray-500': !warning && !danger && !success,
+      'text-yellow-500': warning,
+      'text-red-500': danger,
+      'text-green-500': success
+    }"
+    *ngIf="hint"
+  >
+    <div>
+      {{ hintText }}
+    </div>
+  </div>
+</div>

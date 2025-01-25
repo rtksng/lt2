@@ -1,0 +1,35 @@
+<button
+  class="px-6 py-2 rounded-full bg-primary-base text-white w-full h-12"
+  [attr.type]="type"
+  [attr.disabled]="disabled ? true : null"
+  [ngClass]="{ 'bg-gray-400 cursor-not-allowed': disabled }"
+  (click)="handleEvent($event)"
+  (dblclick)="handleEvent($event)"
+  (mousedown)="handleEvent($event)"
+  (mouseup)="handleEvent($event)"
+  (mouseenter)="handleEvent($event)"
+  (mouseleave)="handleEvent($event)"
+  (mouseover)="handleEvent($event)"
+  (mouseout)="handleEvent($event)"
+  (focus)="handleEvent($event)"
+  (blur)="handleEvent($event)"
+  (keydown)="handleEvent($event)"
+  (keyup)="handleEvent($event)"
+  (keypress)="handleEvent($event)"
+  (input)="handleEvent($event)"
+  (change)="handleEvent($event)"
+  (drag)="handleEvent($event)"
+  (dragstart)="handleEvent($event)"
+  (dragend)="handleEvent($event)"
+  (dragover)="handleEvent($event)"
+  (dragleave)="handleEvent($event)"
+  (drop)="handleEvent($event)"
+  (scroll)="handleEvent($event)"
+  (wheel)="handleEvent($event)"
+>
+  <div
+    class="relative text-[1rem] leading-[1.375rem] font-semibold text-white text-center"
+  >
+    {{ label }}
+  </div>
+</button>

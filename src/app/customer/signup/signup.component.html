@@ -1,0 +1,221 @@
+<div class="grid col-span-1 lg:grid-cols-2">
+  <div class="lg:col-span-1 hidden lg:block h-full relative bg-primary-base">
+    <img src="../../../assets/img/loginImage.png" alt="loginImage" />
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="text-center">
+        <div class="flex items-center w-full">
+          <img src="../../../assets/img/logoWhite.svg" alt="logo" />
+        </div>
+        <p class="text-[26px] text-white max-w-[492px] font-light mt-8">
+          Your health destination that elevates the traditional
+          <span class="font-bold">wellness</span> experience
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="lg:col-span-1 col-span-12 flex items-center justify-center h-screen px-3 relative"
+  >
+    <div>
+      <h2 class="text-gray-900 font-medium mb-6 text-2xl md:text-[40px]">
+        Sign Up
+      </h2>
+      <p class="text-gray-800 text-xl">
+        Empower Your Wellness Journey - Join Us Today!
+      </p>
+
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <!-- <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input
+            id="firstName"
+            type="text"
+            formControlName="firstName"
+            placeholder="Enter your first name"
+          />
+          <div
+            *ngIf="
+              signupForm.get('firstName')?.invalid &&
+              signupForm.get('firstName')?.touched
+            "
+            class="error-message"
+          >
+            {{ getErrorMessage("firstName") }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input
+            id="lastName"
+            type="text"
+            formControlName="lastName"
+            placeholder="Enter your last name"
+          />
+          <div
+            *ngIf="
+              signupForm.get('lastName')?.invalid &&
+              signupForm.get('lastName')?.touched
+            "
+            class="error-message"
+          >
+            {{ getErrorMessage("lastName") }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number</label>
+          <input
+            id="phoneNumber"
+            type="text"
+            formControlName="phoneNumber"
+            placeholder="Enter your phone number"
+          />
+          <div
+            *ngIf="
+              signupForm.get('phoneNumber')?.invalid &&
+              signupForm.get('phoneNumber')?.touched
+            "
+            class="error-message"
+          >
+            {{ getErrorMessage("phoneNumber") }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="text"
+            formControlName="email"
+            placeholder="Enter your email address"
+          />
+          <div
+            *ngIf="
+              signupForm.get('email')?.invalid &&
+              signupForm.get('email')?.touched
+            "
+            class="error-message"
+          >
+            {{ getErrorMessage("email") }}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="choosePassword">Choose Password</label>
+          <input
+            id="choosePassword"
+            type="password"
+            formControlName="choosePassword"
+            placeholder="Password"
+          />
+          <div
+            *ngIf="
+              signupForm.get('choosePassword')?.invalid &&
+              signupForm.get('choosePassword')?.touched
+            "
+            class="error-message"
+          >
+            {{ getErrorMessage("choosePassword") }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Confirm Password</label>
+          <input
+            id="confirmPassword"
+            type="password"
+            formControlName="confirmPassword"
+            placeholder="Confirm Password"
+            (blur)="matchingPassword()"
+          />
+          <div
+            *ngIf="
+              signupForm.get('confirmPassword')?.invalid &&
+              signupForm.get('confirmPassword')?.touched
+            "
+            class="error-message"
+          >
+            {{ getErrorMessage("confirmPassword") }}
+          </div>
+        </div> -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <div class="col-12 md:col-span-1">
+            <app-input
+              label="First Name"
+              inputType="text"
+              placeholder="First name"
+              [parentForm]="signupForm"
+            ></app-input>
+          </div>
+          <div class="col-12 md:col-span-1">
+            <app-input
+              label="Last Name"
+              inputType="text"
+              placeholder="Last name"
+              [parentForm]="signupForm"
+            ></app-input>
+          </div>
+          <div class="col-12 md:col-span-1">
+            <app-input
+              label="Phone Number"
+              inputType="number"
+              placeholder="123-456-7890 "
+              [parentForm]="signupForm"
+            ></app-input>
+          </div>
+          <div class="col-12 md:col-span-1">
+            <app-input
+              label="Email"
+              inputType="email"
+              placeholder="Enter your email address"
+              [parentForm]="signupForm"
+            ></app-input>
+          </div>
+          <div class="col-12 md:col-span-1">
+            <app-input
+              label="Home Location"
+              inputType="text"
+              placeholder="Enter your location"
+              [parentForm]="signupForm"
+            ></app-input>
+          </div>
+          <div class="col-span-2 flex items-center gap-4">
+            <div class="text-lg text-gray-900 whitespace-nowrap">
+              Set Password
+            </div>
+            <div class="h-[1px] w-full bg-gray-900"></div>
+          </div>
+          <div class="col-12 md:col-span-1">
+            <app-input
+              label="Choose Password"
+              inputType="password"
+              placeholder="Password "
+              [parentForm]="signupForm"
+            ></app-input>
+          </div>
+          <div class="col-12 md:col-span-1">
+            <app-input
+              label="Confirm Password"
+              inputType="password"
+              placeholder="Confirm Password "
+              [parentForm]="signupForm"
+              [keydownHandler]="handleKeydown"
+            ></app-input>
+          </div>
+        </div>
+        <div class="mt-10">
+          <app-button
+            [disabled]="signupForm.invalid"
+            type="submit"
+            label="Submit"
+          >
+          </app-button>
+        </div>
+      </form>
+      <div class="mt-10">
+        <div class="text-gray-900 text-lg text-center">
+          Already have an account?
+          <a href="clientLogin" class="text-primary-base"> Login</a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
